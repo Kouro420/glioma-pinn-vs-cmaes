@@ -1,0 +1,264 @@
+{
+ "what": "CMA-ES refit, thresholds and the tumor seed position at the generator's values, second renormalization off, random seed 1, prior off",
+ "b1b": {
+  "n": 16,
+  "E_median_signed_rel_err_mu_d": -0.13803366699177644,
+  "median_abs_rel_err_mu_d": 0.13803366699177644,
+  "range_signed_rel_err_mu_d": [
+   -0.269519540458703,
+   -0.054702347005768634
+  ],
+  "below_truth": 16,
+  "median_abs_rel_err_mu_rho": 0.008943373519225053,
+  "per_brain_E": {
+   "RHUH-0001": -0.1009667526746904,
+   "RHUH-0002": -0.17073883111465435
+  },
+  "evaluations_range": [
+   393,
+   545
+  ],
+  "stopped_on_budget": 0,
+  "stop_reasons": [
+   "tolfun=1e-12; tolfunhist=1e-12"
+  ],
+  "median_dice_wt": 0.9614418368261242,
+  "median_dice_tc": 0.9538714768203933,
+  "cases": [
+   {
+    "case": "SYN-RHUH-0001-d0.2-r0.6",
+    "brain": "RHUH-0001",
+    "mu_d_true": 0.3123986918332169,
+    "mu_d": 0.2631621677740285,
+    "rel_err_mu_d": -0.15760797130826248,
+    "rel_err_mu_rho": 0.0033152497289796272,
+    "n_evaluations": 441,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 1.1300088837742806e-06,
+    "dice_wt": 0.985132652625283,
+    "dice_tc": 0.9931785044782337
+   },
+   {
+    "case": "SYN-RHUH-0001-d0.2-r1.3",
+    "brain": "RHUH-0001",
+    "mu_d_true": 0.20625000000000002,
+    "mu_d": 0.19071324240153914,
+    "rel_err_mu_d": -0.07532973381071939,
+    "rel_err_mu_rho": 0.008754923504931181,
+    "n_evaluations": 545,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 6.67716171592474e-07,
+    "dice_wt": 0.9918589188520535,
+    "dice_tc": 0.9923755264131232
+   },
+   {
+    "case": "SYN-RHUH-0001-d0.4-r0.6",
+    "brain": "RHUH-0001",
+    "mu_d_true": 0.5879747322073337,
+    "mu_d": 0.49197436109399145,
+    "rel_err_mu_d": -0.1632729535042166,
+    "rel_err_mu_rho": -0.002396147697318011,
+    "n_evaluations": 425,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 1.3980813696980478e-06,
+    "dice_wt": 0.976184936669986,
+    "dice_tc": 0.9901759570916454
+   },
+   {
+    "case": "SYN-RHUH-0001-d0.4-r1.3",
+    "brain": "RHUH-0001",
+    "mu_d_true": 0.3555736956823781,
+    "mu_d": 0.33309357938119116,
+    "rel_err_mu_d": -0.06322210156194366,
+    "rel_err_mu_rho": 0.009131823533518926,
+    "n_evaluations": 481,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 8.355377614498139e-07,
+    "dice_wt": 0.9890991267916709,
+    "dice_tc": 0.9891932978617932
+   },
+   {
+    "case": "SYN-RHUH-0001-d0.8-r0.6",
+    "brain": "RHUH-0001",
+    "mu_d_true": 1.0906321102920085,
+    "mu_d": 0.9368103343276921,
+    "rel_err_mu_d": -0.1410391043072551,
+    "rel_err_mu_rho": -0.02069538007953866,
+    "n_evaluations": 393,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 2.015423029661179e-06,
+    "dice_wt": 0.9582932488257597,
+    "dice_tc": 0.9876013525797186
+   },
+   {
+    "case": "SYN-RHUH-0001-d0.8-r1.3",
+    "brain": "RHUH-0001",
+    "mu_d_true": 0.5388877434122991,
+    "mu_d": 0.5094093190750039,
+    "rel_err_mu_d": -0.054702347005768634,
+    "rel_err_mu_rho": 0.0065552300486964215,
+    "n_evaluations": 417,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 1.0182365588843823e-06,
+    "dice_wt": 0.9822220061263188,
+    "dice_tc": 0.9850810717447157
+   },
+   {
+    "case": "SYN-RHUH-0001-d1.2-r0.6",
+    "brain": "RHUH-0001",
+    "mu_d_true": 1.5230769230769232,
+    "mu_d": 1.330249640271885,
+    "rel_err_mu_d": -0.1266037715386614,
+    "rel_err_mu_rho": -0.034367302988549155,
+    "n_evaluations": 393,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 2.649955376982689e-06,
+    "dice_wt": 0.9374194708297127,
+    "dice_tc": 0.9692091190543203
+   },
+   {
+    "case": "SYN-RHUH-0001-d1.2-r1.3",
+    "brain": "RHUH-0001",
+    "mu_d_true": 0.7519363861566963,
+    "mu_d": 0.7035970313418268,
+    "rel_err_mu_d": -0.06428649511422373,
+    "rel_err_mu_rho": 0.009270566458646615,
+    "n_evaluations": 425,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 1.1360550485551357e-06,
+    "dice_wt": 0.9759175650357812,
+    "dice_tc": 0.978412492185399
+   },
+   {
+    "case": "SYN-RHUH-0002-d0.2-r0.6",
+    "brain": "RHUH-0002",
+    "mu_d_true": 0.29646353064078557,
+    "mu_d": 0.21656081609971642,
+    "rel_err_mu_d": -0.269519540458703,
+    "rel_err_mu_rho": -0.01156642143831649,
+    "n_evaluations": 465,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 1.3561728596687318e-06,
+    "dice_wt": 0.9564161470298654,
+    "dice_tc": 0.9385338345864662
+   },
+   {
+    "case": "SYN-RHUH-0002-d0.2-r1.3",
+    "brain": "RHUH-0002",
+    "mu_d_true": 0.223606797749979,
+    "mu_d": 0.18862126239759464,
+    "rel_err_mu_d": -0.15646007055430694,
+    "rel_err_mu_rho": 0.00610345843480637,
+    "n_evaluations": 465,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 8.40058457106352e-07,
+    "dice_wt": 0.9686129702284791,
+    "dice_tc": 0.9381257180370918
+   },
+   {
+    "case": "SYN-RHUH-0002-d0.4-r0.6",
+    "brain": "RHUH-0002",
+    "mu_d_true": 0.5929270612815711,
+    "mu_d": 0.4615949857008852,
+    "rel_err_mu_d": -0.2214978606252524,
+    "rel_err_mu_rho": -0.02371135907453089,
+    "n_evaluations": 433,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 1.669430322945118e-06,
+    "dice_wt": 0.9464858199753391,
+    "dice_tc": 0.9171564822002883
+   },
+   {
+    "case": "SYN-RHUH-0002-d0.4-r1.3",
+    "brain": "RHUH-0002",
+    "mu_d_true": 0.4040610178208843,
+    "mu_d": 0.34962522786461636,
+    "rel_err_mu_d": -0.13472170676063272,
+    "rel_err_mu_rho": 0.005407802414793972,
+    "n_evaluations": 441,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 9.64387059211731e-07,
+    "dice_wt": 0.9645904248264887,
+    "dice_tc": 0.930071979936814
+   },
+   {
+    "case": "SYN-RHUH-0002-d0.8-r0.6",
+    "brain": "RHUH-0002",
+    "mu_d_true": 1.0671938061437005,
+    "mu_d": 0.8578663159314868,
+    "rel_err_mu_d": -0.1961475872584171,
+    "rel_err_mu_rho": -0.04603052451934135,
+    "n_evaluations": 441,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 2.5062971562147143e-06,
+    "dice_wt": 0.9292463835744283,
+    "dice_tc": 0.8641265276779295
+   },
+   {
+    "case": "SYN-RHUH-0002-d0.8-r1.3",
+    "brain": "RHUH-0002",
+    "mu_d_true": 0.77138921583987,
+    "mu_d": 0.6672298956336248,
+    "rel_err_mu_d": -0.13502822967629777,
+    "rel_err_mu_rho": 0.0056715851960762965,
+    "n_evaluations": 417,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 1.1677763611078264e-06,
+    "dice_wt": 0.9572083417287931,
+    "dice_tc": 0.9182282793867121
+   },
+   {
+    "case": "SYN-RHUH-0002-d1.2-r0.6",
+    "brain": "RHUH-0002",
+    "mu_d_true": 1.5784009252939692,
+    "mu_d": 1.2863689873984847,
+    "rel_err_mu_d": -0.18501759167500176,
+    "rel_err_mu_rho": -0.07403286004905622,
+    "n_evaluations": 417,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 3.756608068943024e-06,
+    "dice_wt": 0.9025029103608847,
+    "dice_tc": 0.6916802610114192
+   },
+   {
+    "case": "SYN-RHUH-0002-d1.2-r1.3",
+    "brain": "RHUH-0002",
+    "mu_d_true": 1.0434782608695652,
+    "mu_d": 0.9082031731072642,
+    "rel_err_mu_d": -0.12963862577220514,
+    "rel_err_mu_rho": 0.004031112854180205,
+    "n_evaluations": 433,
+    "stop_reason": "tolfun=1e-12; tolfunhist=1e-12",
+    "objective_refit": 1.3545533269643784e-06,
+    "dice_wt": 0.9506949819944133,
+    "dice_tc": 0.9097923445939146
+   }
+  ],
+  "verdict": "the second renormalization does not account for most of the bias that remains with the thresholds and the tumor seed position fixed"
+ },
+ "x1_ii_renorm_on": {
+  "n": 16,
+  "E_median_signed_rel_err_mu_d": -0.14131577193631134,
+  "median_abs_rel_err_mu_d": 0.14131577193631134,
+  "range_signed_rel_err_mu_d": [
+   -0.3216922895304763,
+   -0.07839224957248057
+  ],
+  "below_truth": 16,
+  "median_abs_rel_err_mu_rho": 0.012687373851611016,
+  "per_brain_E": {
+   "RHUH-0001": -0.11237707429834135,
+   "RHUH-0002": -0.20736943845757771
+  },
+  "evaluations_range": [
+   369,
+   529
+  ],
+  "stopped_on_budget": 0,
+  "stop_reasons": [
+   "tolfun=1e-12; tolfunhist=1e-12"
+  ],
+  "median_dice_wt": 0.963482449920364,
+  "median_dice_tc": 0.958178035510906
+ }
+}

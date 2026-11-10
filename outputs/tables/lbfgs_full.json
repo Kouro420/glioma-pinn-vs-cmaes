@@ -1,0 +1,92 @@
+{
+  "description": "PINN on the training schedule of Zhang et al. with L-BFGS after Adam in pre-training, against the same schedule without it (paper_schedule), 4 profiled cases, prior off; differences are with minus without L-BFGS",
+  "cases": [
+    {
+      "case": "SYN-RHUH-0001-d0.2-r0.6",
+      "source_brain": "RHUH-0001",
+      "mu_d_true": 0.33134885014361126,
+      "mu_d_lbfgs": 0.6839478015899658,
+      "mu_d_paper_schedule": 0.6655915379524231,
+      "diff_mu_d": 0.018356263637542725,
+      "mu_rho_lbfgs": 0.9239974617958069,
+      "mu_rho_paper_schedule": 0.924065113067627,
+      "diff_mu_rho": -6.765127182006836e-05,
+      "prior": 0.0,
+      "lbfgs_iterations": 916,
+      "lbfgs_function_evals": 1066,
+      "pretraining_loss_start": 3.9939055568538606e-05,
+      "pretraining_loss_end": 1.9530543795553967e-05,
+      "loss_reduction": 0.5109913462515909,
+      "lbfgs_stop_reason": "L-BFGS converged (loss-change or step-size tolerance)"
+    },
+    {
+      "case": "SYN-RHUH-0001-d1.2-r1.3",
+      "source_brain": "RHUH-0001",
+      "mu_d_true": 0.6928203230275508,
+      "mu_d_lbfgs": 0.6923515796661377,
+      "mu_d_paper_schedule": 0.6495584845542908,
+      "diff_mu_d": 0.042793095111846924,
+      "mu_rho_lbfgs": 0.8655223846435547,
+      "mu_rho_paper_schedule": 0.8216037750244141,
+      "diff_mu_rho": 0.043918609619140625,
+      "prior": 0.0,
+      "lbfgs_iterations": 2916,
+      "lbfgs_function_evals": 3417,
+      "pretraining_loss_start": 0.0002134119567926973,
+      "pretraining_loss_end": 6.50423753540963e-05,
+      "loss_reduction": 0.6952261891432976,
+      "lbfgs_stop_reason": "L-BFGS converged (loss-change or step-size tolerance)"
+    },
+    {
+      "case": "SYN-RHUH-0002-d0.2-r1.3",
+      "source_brain": "RHUH-0002",
+      "mu_d_true": 0.223606797749979,
+      "mu_d_lbfgs": 0.6922916173934937,
+      "mu_d_paper_schedule": 0.6728506088256836,
+      "diff_mu_d": 0.01944100856781006,
+      "mu_rho_lbfgs": 0.9193801879882812,
+      "mu_rho_paper_schedule": 0.9204997420310974,
+      "diff_mu_rho": -0.0011195540428161621,
+      "prior": 0.0,
+      "lbfgs_iterations": 577,
+      "lbfgs_function_evals": 660,
+      "pretraining_loss_start": 4.749245272250846e-05,
+      "pretraining_loss_end": 3.131320045213215e-05,
+      "loss_reduction": 0.3406699663399013,
+      "lbfgs_stop_reason": "L-BFGS converged (loss-change or step-size tolerance)"
+    },
+    {
+      "case": "SYN-RHUH-0002-d1.2-r0.6",
+      "source_brain": "RHUH-0002",
+      "mu_d_true": 1.5784009252939692,
+      "mu_d_lbfgs": 0.6774476170539856,
+      "mu_d_paper_schedule": 0.6553542017936707,
+      "diff_mu_d": 0.02209341526031494,
+      "mu_rho_lbfgs": 0.8673208951950073,
+      "mu_rho_paper_schedule": 0.8659095168113708,
+      "diff_mu_rho": 0.0014113783836364746,
+      "prior": 0.0,
+      "lbfgs_iterations": 961,
+      "lbfgs_function_evals": 1122,
+      "pretraining_loss_start": 4.08015948778484e-05,
+      "pretraining_loss_end": 2.64072950812988e-05,
+      "loss_reduction": 0.35278767508091735,
+      "lbfgs_stop_reason": "L-BFGS converged (loss-change or step-size tolerance)"
+    }
+  ],
+  "max_abs_diff_mu_d": 0.042793095111846924,
+  "tolerance": 0.05,
+  "all_within_tolerance": true,
+  "lbfgs_iterations_range": [
+    577,
+    2916
+  ],
+  "lbfgs_function_evals_range": [
+    660,
+    3417
+  ],
+  "loss_reduction_range": [
+    0.3406699663399013,
+    0.6952261891432976
+  ]
+}

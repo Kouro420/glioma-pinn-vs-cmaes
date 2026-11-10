@@ -1,0 +1,15 @@
+# the reference PINN is cloned, not distributed (scripts/fetch_reference_pinn.sh)
+external/
+# data and everything generated from it
+/data/
+src/data/predict_gbm/
+outputs/*
+!outputs/tables/
+outputs/tables/f11_slices.npz
+outputs/tables/f11_predictions.json
+logs/
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/

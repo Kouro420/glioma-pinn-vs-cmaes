@@ -1,0 +1,184 @@
+{
+  "what": "Accuracy and bias of the estimates: the numbers our paper quotes.\n\nPrior off, 16 synthetic cases, both arms. For each arm: median relative error of the\nthree reported quantities (D t_end, rho t_end, lambda); how often diffusion is worse than\nproliferation; how often each estimate lies below the truth; rank agreement with the truth; the range\nof the PINN's mu_D estimates. Relative error of mu_D equals relative error of D t_end, since\nmu_D is proportional to D t_end.\n\nAlso: whether CMA-ES stopped on the objective's own minimum in the four profiled cases; how much the\npooled mask-fit/mu_rho correlation depends on the four RHUH-0001 r1.3 cases; and whether the\nbasin widths of the objective profiles (Figure S1) at twice the minimum reach the edge of the [0, 2] box.\n\nWrites outputs/tables/c1_accuracy.json. Run from the repository root.",
+  "source": "outputs/runs_syn_np; outputs/profiles",
+  "arms": {
+    "cmaes": {
+      "n": 16,
+      "median_rel_err_D_t": 0.407,
+      "median_rel_err_rho_t": 0.102,
+      "median_rel_err_lambda": 0.218,
+      "diffusion_worse_than_proliferation": 15,
+      "mu_d_below_truth": 13,
+      "mu_rho_below_truth": 4,
+      "lambda_below_truth": 13,
+      "spearman_mu_d_vs_truth": 0.9,
+      "spearman_mu_rho_vs_truth": 0.81,
+      "pearson_mu_rho_vs_truth": 0.79,
+      "mu_d_estimate_range": [
+        0.104,
+        1.218
+      ],
+      "mu_d_truth_range": [
+        0.21,
+        1.58
+      ],
+      "r_dice_vs_err_mu_rho": 0.156,
+      "median_rel_err_mu_d_at_start_mu1": 0.772,
+      "median_rel_err_mu_rho_at_start_mu1": 0.27,
+      "r_dice_vs_rel_err_mu_d": 0.449,
+      "r_dice_vs_rel_err_mu_d_boot95": [
+        0.22,
+        0.71
+      ],
+      "max_mu_d_movement_last_fifth_any_case": 0.0069
+    },
+    "pinn": {
+      "n": 16,
+      "median_rel_err_D_t": 0.483,
+      "median_rel_err_rho_t": 0.27,
+      "median_rel_err_lambda": 0.29,
+      "diffusion_worse_than_proliferation": 10,
+      "mu_d_below_truth": 11,
+      "mu_rho_below_truth": 8,
+      "lambda_below_truth": 9,
+      "spearman_mu_d_vs_truth": 0.12,
+      "spearman_mu_rho_vs_truth": -0.44,
+      "pearson_mu_rho_vs_truth": -0.55,
+      "mu_d_estimate_range": [
+        0.352,
+        0.414
+      ],
+      "mu_d_truth_range": [
+        0.21,
+        1.58
+      ],
+      "r_dice_vs_err_mu_rho": -0.818,
+      "r_dice_vs_err_mu_rho_without_RHUH0001_r1.3": 0.106,
+      "n_without_RHUH0001_r1.3": 12
+    }
+  },
+  "profiles": [
+    {
+      "case": "SYN-RHUH-0001-d0.2-r0.6",
+      "cmaes_final": [
+        0.164,
+        0.841
+      ],
+      "fine_grid_minimum": [
+        0.16,
+        0.84
+      ],
+      "cmaes_within_one_fine_step": true,
+      "coarse_2x_mu_d_extent": [
+        0.1,
+        1.8
+      ],
+      "coarse_2x_mu_rho_extent": [
+        0.5,
+        1.3
+      ],
+      "coarse_2x_both_reach_box_edge": false,
+      "fine_1p05_width_abs": [
+        0.16,
+        0.2
+      ],
+      "fine_1p05_width_rel_to_minimum": [
+        1.0,
+        0.24
+      ],
+      "coarse_2x_widths_determinable": true
+    },
+    {
+      "case": "SYN-RHUH-0001-d1.2-r1.3",
+      "cmaes_final": [
+        0.205,
+        1.63
+      ],
+      "fine_grid_minimum": [
+        0.2,
+        1.64
+      ],
+      "cmaes_within_one_fine_step": true,
+      "coarse_2x_mu_d_extent": [
+        0.1,
+        2.0
+      ],
+      "coarse_2x_mu_rho_extent": [
+        0.7,
+        2.0
+      ],
+      "coarse_2x_both_reach_box_edge": true,
+      "fine_1p05_width_abs": [
+        0.16,
+        0.38
+      ],
+      "fine_1p05_width_rel_to_minimum": [
+        0.8,
+        0.23
+      ],
+      "coarse_2x_widths_determinable": false
+    },
+    {
+      "case": "SYN-RHUH-0002-d0.2-r1.3",
+      "cmaes_final": [
+        0.104,
+        0.858
+      ],
+      "fine_grid_minimum": [
+        0.1,
+        0.86
+      ],
+      "cmaes_within_one_fine_step": true,
+      "coarse_2x_mu_d_extent": [
+        0.001,
+        2.0
+      ],
+      "coarse_2x_mu_rho_extent": [
+        0.3,
+        2.0
+      ],
+      "coarse_2x_both_reach_box_edge": true,
+      "fine_1p05_width_abs": [
+        0.38,
+        0.5
+      ],
+      "fine_1p05_width_rel_to_minimum": [
+        3.8,
+        0.58
+      ],
+      "coarse_2x_widths_determinable": false
+    },
+    {
+      "case": "SYN-RHUH-0002-d1.2-r0.6",
+      "cmaes_final": [
+        1.18,
+        0.677
+      ],
+      "fine_grid_minimum": [
+        1.18,
+        0.68
+      ],
+      "cmaes_within_one_fine_step": true,
+      "coarse_2x_mu_d_extent": [
+        0.001,
+        2.0
+      ],
+      "coarse_2x_mu_rho_extent": [
+        0.1,
+        2.0
+      ],
+      "coarse_2x_both_reach_box_edge": true,
+      "fine_1p05_width_abs": [
+        1.26,
+        0.3
+      ],
+      "fine_1p05_width_rel_to_minimum": [
+        1.07,
+        0.44
+      ],
+      "coarse_2x_widths_determinable": false
+    }
+  ],
+  "cmaes_on_minimum_in": 4,
+  "f2_2x_both_widths_reach_box_edge_in": 3
+}

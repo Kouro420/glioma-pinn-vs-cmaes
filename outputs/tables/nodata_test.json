@@ -1,0 +1,100 @@
+{
+ "what": "No-data test: Delta = 1 - mu_D(end), mask weights 0 in fine-tuning, vs the same cases with the mask terms on (paper schedule, prior off)",
+ "near": 0.05,
+ "within_near_of_e2": 4,
+ "delta_below_near": 0,
+ "verdict": "the fall does not come from the data; the residual term with the pre-trained network drives it",
+ "cases": [
+  {
+   "case": "SYN-RHUH-0001-d0.2-r0.6",
+   "mu_d_true": 0.33134885014361126,
+   "mu_d_end_nodata": 0.6704420447349548,
+   "mu_d_end_e2": 0.6655915379524231,
+   "delta_nodata": 0.32955795526504517,
+   "delta_e2": 0.3344084620475769,
+   "mu_d_pretrain_end_nodata": 1.0,
+   "mu_d_pretrain_end_e2": 1.0,
+   "last_step_nodata": 24990,
+   "last_step_e2": 24990,
+   "fall_last_500_nodata": 0.020903000000000005,
+   "fall_last_500_e2": 0.021163000000000043,
+   "mu_rho_end_nodata": 0.9540579915046692,
+   "mu_rho_end_e2": 0.924065113067627,
+   "thresholds_end_nodata": [
+    0.3499999940395355,
+    0.699999988079071
+   ],
+   "would_stop_nodata": null,
+   "delta_diff": -0.004850506782531738
+  },
+  {
+   "case": "SYN-RHUH-0001-d1.2-r1.3",
+   "mu_d_true": 0.6928203230275508,
+   "mu_d_end_nodata": 0.6483418941497803,
+   "mu_d_end_e2": 0.6495584845542908,
+   "delta_nodata": 0.3516581058502197,
+   "delta_e2": 0.35044151544570923,
+   "mu_d_pretrain_end_nodata": 1.0,
+   "mu_d_pretrain_end_e2": 1.0,
+   "last_step_nodata": 24990,
+   "last_step_e2": 24990,
+   "fall_last_500_nodata": 0.025177000000000005,
+   "fall_last_500_e2": 0.02498900000000004,
+   "mu_rho_end_nodata": 0.8161230683326721,
+   "mu_rho_end_e2": 0.8216037750244141,
+   "thresholds_end_nodata": [
+    0.3499999940395355,
+    0.699999988079071
+   ],
+   "would_stop_nodata": {
+    "steps_done": 2000,
+    "reason": "no improvement over 1000 steps"
+   },
+   "delta_diff": 0.001216590404510498
+  },
+  {
+   "case": "SYN-RHUH-0002-d0.2-r1.3",
+   "mu_d_true": 0.223606797749979,
+   "mu_d_end_nodata": 0.6783753633499146,
+   "mu_d_end_e2": 0.6728506088256836,
+   "delta_nodata": 0.32162463665008545,
+   "delta_e2": 0.3271493911743164,
+   "mu_d_pretrain_end_nodata": 1.0,
+   "mu_d_pretrain_end_e2": 1.0,
+   "last_step_nodata": 24990,
+   "last_step_e2": 24990,
+   "fall_last_500_nodata": 0.02127599999999996,
+   "fall_last_500_e2": 0.02198699999999998,
+   "mu_rho_end_nodata": 0.9381483793258667,
+   "mu_rho_end_e2": 0.9204997420310974,
+   "thresholds_end_nodata": [
+    0.3499999940395355,
+    0.699999988079071
+   ],
+   "would_stop_nodata": null,
+   "delta_diff": -0.005524754524230957
+  },
+  {
+   "case": "SYN-RHUH-0002-d1.2-r0.6",
+   "mu_d_true": 1.5784009252939692,
+   "mu_d_end_nodata": 0.6668332815170288,
+   "mu_d_end_e2": 0.6553542017936707,
+   "delta_nodata": 0.3331667184829712,
+   "delta_e2": 0.34464579820632935,
+   "mu_d_pretrain_end_nodata": 1.0,
+   "mu_d_pretrain_end_e2": 1.0,
+   "last_step_nodata": 24990,
+   "last_step_e2": 24990,
+   "fall_last_500_nodata": 0.02210500000000004,
+   "fall_last_500_e2": 0.022479999999999944,
+   "mu_rho_end_nodata": 0.9296903610229492,
+   "mu_rho_end_e2": 0.8659095168113708,
+   "thresholds_end_nodata": [
+    0.3499999940395355,
+    0.699999988079071
+   ],
+   "would_stop_nodata": null,
+   "delta_diff": -0.011479079723358154
+  }
+ ]
+}

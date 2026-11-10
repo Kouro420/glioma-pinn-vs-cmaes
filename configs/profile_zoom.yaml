@@ -1,0 +1,34 @@
+# The fine grid of the objective profiles behind Figure S1 of our paper, one window per case. Read by
+# scripts/profile_objective.py --zoom.
+#
+# Why: the coarse profile grids step 0.1 over [0, 2] x [0, 2]. At 1.05 times the minimum several
+# basin widths are one cell, so the order of the widths near the optimum is not resolved.
+# This grid is five times finer where it matters.
+#
+# How each window was set, before any fine point was computed: the bounding box of the grid
+# points at or below 1.05 x the minimum of that case's 21 x 21 grid
+# (outputs/profiles/<case>__prior0__grid21.csv), widened by 0.2 (two coarse cells) on each
+# side, clipped to the search box [0, 2]. mu_d = 0 is lifted to --mu-d-floor as in the coarse
+# grid. The window is chosen from the coarse grid only, so the fine result cannot move it.
+#
+# What this does not fix: at 2.0 x the minimum several mu_D widths reach the edge of the
+# search box [0, 2], so those coarse widths are lower bounds. A finer step cannot change that.
+
+step: 0.02
+source_level: 1.05
+margin: 0.2
+
+cases:
+  SYN-RHUH-0001-d0.2-r0.6:   # 1.05 region: mu_d [0.1, 0.2], mu_rho [0.8, 0.9]
+    mu_d: [0.0, 0.4]
+    mu_rho: [0.6, 1.1]
+  SYN-RHUH-0001-d1.2-r1.3:   # 1.05 region: mu_d [0.2, 0.3], mu_rho [1.5, 1.7]
+    mu_d: [0.0, 0.5]
+    mu_rho: [1.3, 1.9]
+  SYN-RHUH-0002-d0.2-r1.3:   # 1.05 region: mu_d [0.1, 0.3], mu_rho [0.7, 1.1]
+    mu_d: [0.0, 0.5]
+    mu_rho: [0.5, 1.3]
+  SYN-RHUH-0002-d1.2-r0.6:   # 1.05 region: mu_d [0.7, 1.8], mu_rho [0.6, 0.8]
+    mu_d: [0.5, 2.0]
+    mu_rho: [0.4, 1.0]
+# Points: 21x26 = 546, 26x31 = 806, 26x41 = 1066, 76x31 = 2356. Total 4774.

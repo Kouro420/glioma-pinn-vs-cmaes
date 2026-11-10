@@ -1,0 +1,114 @@
+# Design-range cases: 16 cases generated with targets inside Zhang et al.'s (2025, p. 5) range mu_D, mu_rho
+# in [0.75, 1.25]; the 12 whose re-estimated truth stays inside are used. Also read by the CMA-ES runs on them.
+# Same as configs/base.yaml except the keys marked below; base.yaml explains every setting.
+
+model:
+  factor: 10.0
+  voxel_mm: 1.0
+  t_final: 1.0
+  n_save: 2
+  cfl_safety: 0.99
+  phase_field:
+    n_iter: 100
+    epsilon_mm: 3.0
+
+initial_condition:
+  h_init: 0.5
+  r_init: 0.01
+
+characteristic:
+  radius_method: rvol
+  xdim: 3
+  domain_mm: 180.0
+  d_grid: [0.1, 1.0, 10]
+  rho_grid: [0.01, 0.1, 10]
+
+parameters:
+  mu_d:   {init: 1.0, min: 0.0, max: 2.0}
+  mu_rho: {init: 1.0, min: 0.0, max: 2.0}
+  th_wt:  {init: 0.35, min: 0.0, max: 1.0}
+  th_tc:  {init: 0.70, min: 0.0, max: 1.0}
+
+objective:
+  steepness: 20.0
+  weights:
+    seg_wt: 1.0e-5
+    seg_tc: 1.0e-5
+    reg_mu_d: 1.0e-3
+    reg_mu_rho: 1.0e-3
+    reg_th_wt: 1.0e-3
+    reg_th_tc: 1.0e-3
+    range_penalty: 1.0
+
+cmaes:
+  sigma0: 0.25
+  popsize: 8
+  max_evaluations: 600
+  tol_fun: 1.0e-12
+  seed: 1                 # 1, not 0: pycma treats 0 as a clock seed, so a seed-0 run cannot be repeated
+
+pinn:
+  separable: false
+  depth: 4
+  width: 128
+  arch: mmlp
+  fourier: true
+  sigma: 1.0
+  output_rank: 64
+  act: tanh
+  iter_init: 4000
+  iter_inv: 1000
+  lr_init: 1.0e-3
+  lr_inv: 1.0e-3
+  dat_batch_size: 100000
+  res_batch_size: 200000
+  optimiser: Adam
+
+  reference:
+    amsgrad: true
+    texp_weight: 10.0
+    weights_init:
+      res: 1.0
+      uchar_res: 10.0
+    weights_inv_res: 1.0
+    m_times: 100
+    Nt: 101
+    scheduler: ExponentialLR
+    scheduler_gamma: 1.0
+    force_bc: true
+    reset_optim: true
+    acc_iter: 1
+    rpow_weight: 0.0
+    causal_weight: false
+    use_fdm: false
+    ksigmoid_is_dead: 50
+
+evaluation:
+  ctv_margin_mm: 15.0
+  recurrence_targets: [enhancing, core]
+
+data:
+  root: src/data/predict_gbm/predict_gbm
+  cohort: RHUH
+  case_list: experiments/cases_rhuh.txt
+  order: patient_id
+  minimum_cases: 20
+  maximum_cases: 40
+  cache_dir: outputs/cache
+
+synthetic:
+  n_cases: 8
+  fine_voxel_mm: 0.5
+  noise_sigma: 0.05
+  noise_smoothing_mm: 3.0
+  seed: 20261013          # random seed of the noise; the base cases use 20260916
+  mu_ds: [0.8, 0.9, 1.1, 1.2]  # target mu_D values, within 20% of the source brain's own scale
+  mu_rhos: [0.8, 1.2]     # target mu_rho values; thresholds tied to mu_rho as in the base cases
+  case_prefix: ENV        # case ids ENV-RHUH-000x-d..-r..; never collide with the SYN- base cases
+  keep_truth_box: [0.75, 1.25]  # a case is used only if both re-estimated true mu lie inside
+
+runtime:
+  device: cuda
+  dtype: float32
+  gpu_model: a100
+  seed: 0

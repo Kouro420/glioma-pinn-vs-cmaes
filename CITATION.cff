@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "glioma-pinn-vs-cmaes"
+type: software
+license: MIT
+authors:
+  - family-names: Moini
+    given-names: Kourosh
+    affiliation: "Institut für Kontinuumsmechanik, Leibniz Universität Hannover"
+repository-code: "https://github.com/Kouro420/glioma-pinn-vs-cmaes"
+# doi: add the Zenodo DOI of this software here once it is minted
+preferred-citation:
+  type: article
+  title: "How much of a Fisher–Kolmogorov glioma model can one structural MRI calibrate? A matched comparison of a physics-informed neural network and CMA-ES"
+  authors:
+    - family-names: Moini
+      given-names: Kourosh
+    - family-names: Soleimani
+      given-names: Meisam
+    - family-names: Nagel
+      given-names: Sebastian
+    - family-names: Kalou
+      given-names: Yamen
+    - family-names: Simon
+      given-names: Matthias
+    - family-names: Nikoubashman
+      given-names: Omid
+    - family-names: Junker
+      given-names: Philipp
+    - family-names: Esmaeilzadeh
+      given-names: Majid

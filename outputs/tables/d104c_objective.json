@@ -1,0 +1,269 @@
+{
+  "what": "Check of the tumor seed position, design-range cases: the objective at the truth against the refit point with the generator's tumor seed position.\n\nFor each of the 12 design-range cases (``outputs/synthetic_env``), the forward model is solved with the tumor seed position\nat the generator's position (``configs/env_generator_seeds.json``, as in the refit with that position) once at the\ntruth (``truth.json`` d_eff, rho_eff) and once at the CMA-ES point of that refit (``outputs/runs_d104c``), each\nscored on the shared objective (prior off, a = 20) with both thresholds re-optimized on the stored field, as\n``scripts/objective_at_estimates.py`` does. Reported per case: the ratio objective(truth) / objective(refit);\n<= 1 means the truth fits at least as well, so the search stopped short of the truth's level. All these\nruns stopped on the 600-evaluation budget, so this is the check of whether the search had finished. As a check,\nthe refit point's re-optimized score is compared with the record's best score (its thresholds were fitted).",
+  "summary": {
+    "RHUH-0001": {
+      "n": 5,
+      "truth_at_least_as_good": 0,
+      "median_ratio": 1.026076695992767,
+      "min": 1.020484540320797,
+      "max": 1.0363557516383828
+    },
+    "RHUH-0002": {
+      "n": 7,
+      "truth_at_least_as_good": 0,
+      "median_ratio": 1.060478779579169,
+      "min": 1.0082159343283223,
+      "max": 1.102380530376849
+    }
+  },
+  "cases": [
+    {
+      "case": "ENV-RHUH-0001-d0.8-r0.8",
+      "brain": "RHUH-0001",
+      "seed_offset_mm": 3.670486593256836,
+      "mu_d_true": 0.7778174593052021,
+      "refit_mu_d": 0.6278361768754726,
+      "record_best_score": 1.7812780290842057e-06,
+      "truth": {
+        "total": 1.8455226719379426e-06,
+        "th_wt": 0.2464423103374813,
+        "th_tc": 0.5905601079824383
+      },
+      "refit": {
+        "total": 1.7812783271074297e-06,
+        "th_wt": 0.26654912517849416,
+        "th_tc": 0.6544158752994664
+      },
+      "ratio_truth_over_refit": 1.0360664270444684,
+      "check_refit_over_record": 1.000000167308651
+    },
+    {
+      "case": "ENV-RHUH-0001-d0.9-r0.8",
+      "brain": "RHUH-0001",
+      "seed_offset_mm": 3.7602389975554256,
+      "mu_d_true": 0.8049844718999244,
+      "refit_mu_d": 0.7100868578241661,
+      "record_best_score": 2.067263126373291e-06,
+      "truth": {
+        "total": 2.109610289335251e-06,
+        "th_wt": 0.24453283104681459,
+        "th_tc": 0.5928795036104793
+      },
+      "refit": {
+        "total": 2.067263349890709e-06,
+        "th_wt": 0.29237623521240286,
+        "th_tc": 0.6736136375191565
+      },
+      "ratio_truth_over_refit": 1.020484540320797,
+      "check_refit_over_record": 1.0000001081223842
+    },
+    {
+      "case": "ENV-RHUH-0001-d1.1-r0.8",
+      "brain": "RHUH-0001",
+      "seed_offset_mm": 3.7975167010244957,
+      "mu_d_true": 0.9549325598028516,
+      "refit_mu_d": 0.8377035075597211,
+      "record_best_score": 2.161313518881798e-06,
+      "truth": {
+        "total": 2.208043932914734e-06,
+        "th_wt": 0.23414576793737893,
+        "th_tc": 0.594914346680264
+      },
+      "refit": {
+        "total": 2.161313742399216e-06,
+        "th_wt": 0.2761210649575387,
+        "th_tc": 0.6730179489012635
+      },
+      "ratio_truth_over_refit": 1.0216211971444942,
+      "check_refit_over_record": 1.000000103417397
+    },
+    {
+      "case": "ENV-RHUH-0001-d1.2-r0.8",
+      "brain": "RHUH-0001",
+      "seed_offset_mm": 3.663748495046774,
+      "mu_d_true": 1.0417446106940198,
+      "refit_mu_d": 0.8506181771756633,
+      "record_best_score": 2.1401998400688173e-06,
+      "truth": {
+        "total": 2.218008413910866e-06,
+        "th_wt": 0.2511926143220215,
+        "th_tc": 0.5893935855109445
+      },
+      "refit": {
+        "total": 2.1401998400688173e-06,
+        "th_wt": 0.29334522792388695,
+        "th_tc": 0.6764597592712789
+      },
+      "ratio_truth_over_refit": 1.0363557516383828,
+      "check_refit_over_record": 1.0
+    },
+    {
+      "case": "ENV-RHUH-0001-d1.2-r1.2",
+      "brain": "RHUH-0001",
+      "seed_offset_mm": 4.850512754194835,
+      "mu_d_true": 0.7886162098716573,
+      "refit_mu_d": 0.7241216894092045,
+      "record_best_score": 1.937467716634274e-06,
+      "truth": {
+        "total": 1.9879905879497528e-06,
+        "th_wt": 0.4442661550808543,
+        "th_tc": 0.7935198246249175
+      },
+      "refit": {
+        "total": 1.9374678283929825e-06,
+        "th_wt": 0.33894081384455704,
+        "th_tc": 0.7271711526065158
+      },
+      "ratio_truth_over_refit": 1.026076695992767,
+      "check_refit_over_record": 1.0000000576828754
+    },
+    {
+      "case": "ENV-RHUH-0002-d0.8-r0.8",
+      "brain": "RHUH-0002",
+      "seed_offset_mm": 2.0201243996819853,
+      "mu_d_true": 0.941502306315701,
+      "refit_mu_d": 0.7491695548889286,
+      "record_best_score": 2.435595542192459e-06,
+      "truth": {
+        "total": 2.4556064605712894e-06,
+        "th_wt": 0.27245502149315454,
+        "th_tc": 0.6121570167295924
+      },
+      "refit": {
+        "total": 2.435595765709877e-06,
+        "th_wt": 0.27373631256661574,
+        "th_tc": 0.6442534026718807
+      },
+      "ratio_truth_over_refit": 1.0082159343283223,
+      "check_refit_over_record": 1.0000000917711558
+    },
+    {
+      "case": "ENV-RHUH-0002-d0.8-r1.2",
+      "brain": "RHUH-0002",
+      "seed_offset_mm": 3.6653273021401236,
+      "mu_d_true": 0.8081220356417687,
+      "refit_mu_d": 0.5143139894820079,
+      "record_best_score": 2.0431319624185563e-06,
+      "truth": {
+        "total": 2.194332778453827e-06,
+        "th_wt": 0.4616107196389811,
+        "th_tc": 0.8001790344140596
+      },
+      "refit": {
+        "total": 2.0431320369243625e-06,
+        "th_wt": 0.2891748696711241,
+        "th_tc": 0.7144745291128917
+      },
+      "ratio_truth_over_refit": 1.0740043907084318,
+      "check_refit_over_record": 1.0000000364664678
+    },
+    {
+      "case": "ENV-RHUH-0002-d0.9-r0.8",
+      "brain": "RHUH-0002",
+      "seed_offset_mm": 2.5299552970390127,
+      "mu_d_true": 0.954594154601839,
+      "refit_mu_d": 0.61814790509474,
+      "record_best_score": 2.4130825698375703e-06,
+      "truth": {
+        "total": 2.486921697854996e-06,
+        "th_wt": 0.26458202299747946,
+        "th_tc": 0.5944127738005366
+      },
+      "refit": {
+        "total": 2.4130824953317645e-06,
+        "th_wt": 0.27245514075407556,
+        "th_tc": 0.66450819379137
+      },
+      "ratio_truth_over_refit": 1.0305995351033699,
+      "check_refit_over_record": 0.9999999691242203
+    },
+    {
+      "case": "ENV-RHUH-0002-d0.9-r1.2",
+      "brain": "RHUH-0002",
+      "seed_offset_mm": 3.709032600378884,
+      "mu_d_true": 0.9091372900969896,
+      "refit_mu_d": 0.5516723595348901,
+      "record_best_score": 2.1380529552698135e-06,
+      "truth": {
+        "total": 2.267359867691994e-06,
+        "th_wt": 0.45532537958761465,
+        "th_tc": 0.7949567137748292
+      },
+      "refit": {
+        "total": 2.1380530297756197e-06,
+        "th_wt": 0.29740984697806694,
+        "th_tc": 0.7283300457917057
+      },
+      "ratio_truth_over_refit": 1.060478779579169,
+      "check_refit_over_record": 1.0000000348475027
+    },
+    {
+      "case": "ENV-RHUH-0002-d1.1-r0.8",
+      "brain": "RHUH-0002",
+      "seed_offset_mm": 1.787759513555449,
+      "mu_d_true": 1.1667261889578033,
+      "refit_mu_d": 0.9558232886812315,
+      "record_best_score": 2.698084264993668e-06,
+      "truth": {
+        "total": 2.7433720976114275e-06,
+        "th_wt": 0.2647304381708894,
+        "th_tc": 0.5933515722980466
+      },
+      "refit": {
+        "total": 2.698044776916504e-06,
+        "th_wt": 0.29699851563041474,
+        "th_tc": 0.6627552208923976
+      },
+      "ratio_truth_over_refit": 1.016800062431405,
+      "check_refit_over_record": 0.9999853644018178
+    },
+    {
+      "case": "ENV-RHUH-0002-d1.1-r1.2",
+      "brain": "RHUH-0002",
+      "seed_offset_mm": 3.2707686181194315,
+      "mu_d_true": 1.0606601717798212,
+      "refit_mu_d": 0.6250974509414768,
+      "record_best_score": 2.2048022598028186e-06,
+      "truth": {
+        "total": 2.4305310845375063e-06,
+        "th_wt": 0.45703200967849544,
+        "th_tc": 0.8005068599588501
+      },
+      "refit": {
+        "total": 2.2048022598028186e-06,
+        "th_wt": 0.273534431775338,
+        "th_tc": 0.7186605033674743
+      },
+      "ratio_truth_over_refit": 1.102380530376849,
+      "check_refit_over_record": 1.0
+    },
+    {
+      "case": "ENV-RHUH-0002-d1.2-r1.2",
+      "brain": "RHUH-0002",
+      "seed_offset_mm": 3.856887904996373,
+      "mu_d_true": 1.090909090909091,
+      "refit_mu_d": 0.7291215661776974,
+      "record_best_score": 2.5032365322113038e-06,
+      "truth": {
+        "total": 2.6963534951210026e-06,
+        "th_wt": 0.45909182699199946,
+        "th_tc": 0.8089785275029112
+      },
+      "refit": {
+        "total": 2.5032369792461397e-06,
+        "th_wt": 0.2904028741273523,
+        "th_tc": 0.7284454998708358
+      },
+      "ratio_truth_over_refit": 1.0771467174206657,
+      "check_refit_over_record": 1.0000001785827388
+    }
+  ],
+  "provenance": {
+    "torch": "2.10.0+cu128",
+    "device": "cuda",
+    "config": "configs/base.yaml",
+    "data": "outputs/synthetic_env",
+    "refit_records": "outputs/runs_d104c",
+    "seeds": "configs/env_generator_seeds.json"
+  }
+}

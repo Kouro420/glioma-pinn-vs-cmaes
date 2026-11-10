@@ -1,0 +1,574 @@
+{
+  "summary": {
+    "n": 20,
+    "pinn_dir": "outputs/runs_patient_np_paper",
+    "cmaes_dir": "outputs/runs_patient_np",
+    "missing_pinn": [],
+    "missing_cmaes": [],
+    "dice_wt": {
+      "cmaes_wins": 15,
+      "pinn_wins": 5,
+      "ties": 0,
+      "p_sign": 0.04138946533203125,
+      "median_pinn": 0.6853253041020322,
+      "median_cmaes": 0.7431939139961863
+    },
+    "dice_tc": {
+      "cmaes_wins": 17,
+      "pinn_wins": 3,
+      "ties": 0,
+      "p_sign": 0.0025768280029296875,
+      "median_pinn": 0.7639634046235199,
+      "median_cmaes": 0.7943837149016444
+    },
+    "mu_d": {
+      "pinn_min": 0.6175359487533569,
+      "pinn_median": 0.6489842236042023,
+      "pinn_max": 0.6854612231254578,
+      "cmaes_min": 0.03665603438327578,
+      "cmaes_median": 0.4120522000482363,
+      "cmaes_max": 1.5774759619894738,
+      "r_pinn_vs_cmaes": -0.5498542116639964
+    },
+    "mu_rho": {
+      "pinn_min": 0.8231868147850037,
+      "pinn_median": 0.86195969581604,
+      "pinn_max": 0.904905378818512,
+      "cmaes_min": 0.3666586154154687,
+      "cmaes_median": 0.9424010221752631,
+      "cmaes_max": 1.570389238784586,
+      "r_pinn_vs_cmaes": 0.19611688194520693
+    },
+    "pinn_stop_reasons": {
+      "init": {
+        "step budget reached": 19,
+        "no improvement over 1000 steps": 1
+      },
+      "inv": {
+        "step budget reached": 20
+      }
+    }
+  },
+  "cases": [
+    {
+      "case": "RHUH-0001",
+      "pinn": {
+        "mu_d": 0.637959361076355,
+        "mu_rho": 0.888022780418396,
+        "dice_wt": 0.7008227897907613,
+        "dice_tc": 0.7650582514320855,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.2159168034341805
+      },
+      "cmaes": {
+        "mu_d": 0.36937724743863326,
+        "mu_rho": 1.570389238784586,
+        "dice_wt": 0.7692685897120727,
+        "dice_tc": 0.8070859029008648,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0002",
+      "pinn": {
+        "mu_d": 0.6553524136543274,
+        "mu_rho": 0.8546028137207031,
+        "dice_wt": 0.5474601179199349,
+        "dice_tc": 0.7011642949547219,
+        "stop": {
+          "init": "no improvement over 1000 steps",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 6.345424228105177
+      },
+      "cmaes": {
+        "mu_d": 0.03665603438327578,
+        "mu_rho": 0.49623942407653465,
+        "dice_wt": 0.4328807788012398,
+        "dice_tc": 0.7892888498683055,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0003",
+      "pinn": {
+        "mu_d": 0.6854612231254578,
+        "mu_rho": 0.8830575346946716,
+        "dice_wt": 0.7881467614203195,
+        "dice_tc": 0.7202964900806628,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.2092484459749215
+      },
+      "cmaes": {
+        "mu_d": 0.5859004056060727,
+        "mu_rho": 0.5532643566160089,
+        "dice_wt": 0.7812337670564685,
+        "dice_tc": 0.7171724137931035,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0004",
+      "pinn": {
+        "mu_d": 0.6499873995780945,
+        "mu_rho": 0.8500337600708008,
+        "dice_wt": 0.7194283585627688,
+        "dice_tc": 0.7406697885625089,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.215265688690771
+      },
+      "cmaes": {
+        "mu_d": 0.4043187144262631,
+        "mu_rho": 0.901807953631328,
+        "dice_wt": 0.7529329864473491,
+        "dice_tc": 0.7528503260117292,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0005",
+      "pinn": {
+        "mu_d": 0.6690309643745422,
+        "mu_rho": 0.8704007267951965,
+        "dice_wt": 0.7674826163152242,
+        "dice_tc": 0.7038129909944434,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.212024445819229
+      },
+      "cmaes": {
+        "mu_d": 0.19718155037219023,
+        "mu_rho": 0.8571994105119256,
+        "dice_wt": 0.7867036877713034,
+        "dice_tc": 0.7545100665522582,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0006",
+      "pinn": {
+        "mu_d": 0.6473981142044067,
+        "mu_rho": 0.8231868147850037,
+        "dice_wt": 0.7401748825890321,
+        "dice_tc": 0.8286958262436193,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.215791040431682
+      },
+      "cmaes": {
+        "mu_d": 0.6022661400773109,
+        "mu_rho": 0.9996900875673344,
+        "dice_wt": 0.7735170173743823,
+        "dice_tc": 0.8529278082075697,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0007",
+      "pinn": {
+        "mu_d": 0.6546090841293335,
+        "mu_rho": 0.877751350402832,
+        "dice_wt": 0.7421105286694974,
+        "dice_tc": 0.797675836591227,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.609069066460037
+      },
+      "cmaes": {
+        "mu_d": 0.43442079069681705,
+        "mu_rho": 1.223931575361661,
+        "dice_wt": 0.7948150923027967,
+        "dice_tc": 0.820496413296063,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0008",
+      "pinn": {
+        "mu_d": 0.6343994736671448,
+        "mu_rho": 0.904905378818512,
+        "dice_wt": 0.6588167691248371,
+        "dice_tc": 0.8497891950191195,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.212563350458319
+      },
+      "cmaes": {
+        "mu_d": 0.6666616467925333,
+        "mu_rho": 0.6394342643428379,
+        "dice_wt": 0.6098162157250279,
+        "dice_tc": 0.8493109696294695,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0009",
+      "pinn": {
+        "mu_d": 0.6519632339477539,
+        "mu_rho": 0.8390825390815735,
+        "dice_wt": 0.6696961315051172,
+        "dice_tc": 0.7745900494454843,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.215778889804691
+      },
+      "cmaes": {
+        "mu_d": 0.3367396283315042,
+        "mu_rho": 0.8829373596038651,
+        "dice_wt": 0.7247810333357159,
+        "dice_tc": 0.8329816214557035,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0010",
+      "pinn": {
+        "mu_d": 0.6848515868186951,
+        "mu_rho": 0.8793653845787048,
+        "dice_wt": 0.6859545004945599,
+        "dice_tc": 0.8098797958175531,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.2107135271308165
+      },
+      "cmaes": {
+        "mu_d": 0.09055154875738994,
+        "mu_rho": 0.9696196085573382,
+        "dice_wt": 0.6671531688744349,
+        "dice_tc": 0.8528631934162046,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0011",
+      "pinn": {
+        "mu_d": 0.6339763402938843,
+        "mu_rho": 0.8642458915710449,
+        "dice_wt": 0.7345431706994578,
+        "dice_tc": 0.7428891633027904,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.610813331464176
+      },
+      "cmaes": {
+        "mu_d": 0.17900842527800215,
+        "mu_rho": 1.263442451800634,
+        "dice_wt": 0.7930124071762601,
+        "dice_tc": 0.8069473947269774,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0012",
+      "pinn": {
+        "mu_d": 0.6479810476303101,
+        "mu_rho": 0.8526570200920105,
+        "dice_wt": 0.6447305161730641,
+        "dice_tc": 0.7950231969633066,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.21458297188342
+      },
+      "cmaes": {
+        "mu_d": 0.6831625200973341,
+        "mu_rho": 0.7104590236174217,
+        "dice_wt": 0.6998045090100348,
+        "dice_tc": 0.7994785799349834,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0013",
+      "pinn": {
+        "mu_d": 0.631732702255249,
+        "mu_rho": 0.870029091835022,
+        "dice_wt": 0.6682988503615225,
+        "dice_tc": 0.6818862548854878,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.215337111693807
+      },
+      "cmaes": {
+        "mu_d": 0.26836958363542135,
+        "mu_rho": 1.3561004811506934,
+        "dice_wt": 0.7334548415450236,
+        "dice_tc": 0.7097607631729312,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0014",
+      "pinn": {
+        "mu_d": 0.6506022214889526,
+        "mu_rho": 0.8727120161056519,
+        "dice_wt": 0.5926801796942092,
+        "dice_tc": 0.704525456282938,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.611371454497567
+      },
+      "cmaes": {
+        "mu_d": 0.8034146572981675,
+        "mu_rho": 1.395446010034261,
+        "dice_wt": 0.6511708083415931,
+        "dice_tc": 0.7204071723372525,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0015",
+      "pinn": {
+        "mu_d": 0.6504919528961182,
+        "mu_rho": 0.8596735000610352,
+        "dice_wt": 0.7156683366375993,
+        "dice_tc": 0.625344141939431,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.607253537247501
+      },
+      "cmaes": {
+        "mu_d": 0.5123545440400716,
+        "mu_rho": 0.9875257372795935,
+        "dice_wt": 0.7753692169608617,
+        "dice_tc": 0.5982575855113514,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0016",
+      "pinn": {
+        "mu_d": 0.6175359487533569,
+        "mu_rho": 0.8732480406761169,
+        "dice_wt": 0.6846961077095046,
+        "dice_tc": 0.7628685578149542,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.215307357955026
+      },
+      "cmaes": {
+        "mu_d": 0.9416165314353016,
+        "mu_rho": 1.1200908220168064,
+        "dice_wt": 0.7814673767934683,
+        "dice_tc": 0.7768619169496969,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0017",
+      "pinn": {
+        "mu_d": 0.6768776178359985,
+        "mu_rho": 0.8489391207695007,
+        "dice_wt": 0.5844300059066745,
+        "dice_tc": 0.4402116402116402,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.604584398010823
+      },
+      "cmaes": {
+        "mu_d": 0.07015625470281305,
+        "mu_rho": 0.3666586154154687,
+        "dice_wt": 0.5518690555186906,
+        "dice_tc": 0.5449844881075491,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0018",
+      "pinn": {
+        "mu_d": 0.6199311017990112,
+        "mu_rho": 0.854812502861023,
+        "dice_wt": 0.5688512615617493,
+        "dice_tc": 0.7767518939393939,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.6102416965180435
+      },
+      "cmaes": {
+        "mu_d": 1.5774759619894738,
+        "mu_rho": 0.66588221504655,
+        "dice_wt": 0.6127440896128046,
+        "dice_tc": 0.7807966340524342,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0019",
+      "pinn": {
+        "mu_d": 0.6468181014060974,
+        "mu_rho": 0.8347262740135193,
+        "dice_wt": 0.660368161486409,
+        "dice_tc": 0.77308151525019,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.215307952700467
+      },
+      "cmaes": {
+        "mu_d": 0.35969892767139544,
+        "mu_rho": 0.915182435793188,
+        "dice_wt": 0.7121102578632328,
+        "dice_tc": 0.8155176503568887,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    },
+    {
+      "case": "RHUH-0020",
+      "pinn": {
+        "mu_d": 0.6414541006088257,
+        "mu_rho": 0.8505273461341858,
+        "dice_wt": 0.7720481788175343,
+        "dice_tc": 0.8201455403112147,
+        "stop": {
+          "init": "step budget reached",
+          "inv": "step budget reached"
+        },
+        "prior_scale": 0.0,
+        "wall_clock_h": 7.215814190746363
+      },
+      "cmaes": {
+        "mu_d": 0.41978568567020946,
+        "mu_rho": 1.1205784217049863,
+        "dice_wt": 0.846924050819572,
+        "dice_tc": 0.8488434075877727,
+        "prior_scale": 0.0
+      },
+      "truth": {
+        "mu_d": null,
+        "mu_rho": null
+      }
+    }
+  ]
+}

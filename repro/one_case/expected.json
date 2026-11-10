@@ -1,0 +1,36 @@
+{
+  "what": "SYN-RHUH-0002-d1.2-r0.6, the case in row 1 of Figure 1 of our paper: the values of our run records and the tolerances a rerun is checked against",
+  "case": "SYN-RHUH-0002-d1.2-r0.6",
+  "synthetic": {
+    "source": "outputs/synthetic_local/SYN-RHUH-0002-d1.2-r0.6/truth.json",
+    "mu_d_true": 1.5784009252939692,
+    "mu_rho_true": 0.6313603701175877,
+    "voxels_wt": 19381,
+    "voxels_tc": 2230,
+    "tolerance": {"mu_d_true": 1e-6, "mu_rho_true": 1e-6, "voxels_relative": 0.01},
+    "tumor_seg_md5_paper": "e57f05ee2c7e51144db4e17041cfd4a5"
+  },
+  "cmaes": {
+    "source": "outputs/runs_syn_np/SYN-RHUH-0002-d1.2-r0.6__cmaes.json",
+    "config": "configs/base.yaml, --prior-scale 0.0, --seed 1",
+    "mu_d": 1.1800353284437957,
+    "mu_rho": 0.6769930925440822,
+    "dice_wt": 0.828132605051106,
+    "dice_tc": 0.7026732133115112,
+    "tolerance": {"mu_d": 0.01, "mu_rho": 0.01, "dice_wt": 0.005, "dice_tc": 0.005}
+  },
+  "pinn": {
+    "source": "outputs/runs_syn_np_paper/SYN-RHUH-0002-d1.2-r0.6__pinn.json",
+    "config": "configs/paper_schedule.yaml, --prior-scale 0.0",
+    "mu_d": 0.6553542017936707,
+    "mu_rho": 0.8659095168113708,
+    "dice_wt": 0.8172089857045609,
+    "dice_tc": 0.682648401826484,
+    "tolerance": {"mu_d": 0.03, "mu_rho": 0.03, "dice_wt": 0.01, "dice_tc": 0.015},
+    "tolerance_reason": "GPU arithmetic is not bit-reproducible, so a rerun of the PINN can differ slightly from our run record"
+  },
+  "findings": [
+    "the PINN's mu_D ends below CMA-ES's (both below the truth 1.578)",
+    "CMA-ES fits the whole-tumor mask better than the PINN (Dice WT)"
+  ]
+}

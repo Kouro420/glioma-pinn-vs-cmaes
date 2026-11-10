@@ -1,0 +1,32 @@
+{
+  "rule": "returns its first guess if median |mu_D - 1| < 0.05 and median |mu_rho - 1| < 0.05",
+  "rule_first_guess": false,
+  "release_defaults_separable_prior_on": {
+    "folder": "outputs/runs_patient_release_defaults",
+    "n": 20,
+    "median_abs_mu_d_minus_1": 0.1776,
+    "median_abs_mu_rho_minus_1": 0.0595,
+    "mu_d_range": [
+      0.72,
+      0.889
+    ],
+    "mu_rho_range": [
+      0.912,
+      0.964
+    ]
+  },
+  "dense_prior_on": {
+    "folder": "outputs/runs_patient",
+    "n": 20,
+    "median_abs_mu_d_minus_1": 0.0766,
+    "median_abs_mu_rho_minus_1": 0.0331,
+    "mu_d_range": [
+      0.875,
+      0.975
+    ],
+    "mu_rho_range": [
+      0.946,
+      0.987
+    ]
+  }
+}

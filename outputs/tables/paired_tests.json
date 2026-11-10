@@ -1,0 +1,903 @@
+{
+  "what": "exact sign test and Wilcoxon signed-rank, two-sided, zero differences dropped, no multiplicity correction; margins > 0 favor CMA-ES",
+  "caveat": "16 synthetic cases = 8 per brain on 2 geometries: not independent; every p is optimistic",
+  "scipy": "1.17.0",
+  "comparisons": {
+    "C1 synthetic, default schedule, prior off": {
+      "pinn_dir": "outputs/runs_syn_np",
+      "cmaes_dir": "outputs/runs_syn_np",
+      "cases": 16,
+      "missing_pinn": [],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 16,
+          "cmaes_better": 16,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 3.0517578125e-05,
+          "p_wilcoxon": 3.0517578125e-05,
+          "median_margin": 0.029154761223007974
+        },
+        "dice_tc": {
+          "n": 16,
+          "cmaes_better": 16,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 3.0517578125e-05,
+          "p_wilcoxon": 3.0517578125e-05,
+          "median_margin": 0.02644449846385194
+        },
+        "err_mu_d": {
+          "n": 16,
+          "cmaes_better": 9,
+          "pinn_better": 7,
+          "ties": 0,
+          "p_sign": 0.803619384765625,
+          "p_wilcoxon": 0.433197021484375,
+          "median_margin": 0.05716019202542577
+        },
+        "err_mu_rho": {
+          "n": 16,
+          "cmaes_better": 11,
+          "pinn_better": 5,
+          "ties": 0,
+          "p_sign": 0.210113525390625,
+          "p_wilcoxon": 0.02496337890625,
+          "median_margin": 0.0945304976691137
+        }
+      },
+      "per_brain": {
+        "RHUH-0001": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 3,
+              "pinn_better": 5
+            },
+            "err_mu_rho": {
+              "cmaes_better": 7,
+              "pinn_better": 1
+            }
+          }
+        },
+        "RHUH-0002": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 6,
+              "pinn_better": 2
+            },
+            "err_mu_rho": {
+              "cmaes_better": 4,
+              "pinn_better": 4
+            }
+          }
+        }
+      }
+    },
+    "C1 synthetic, default schedule, prior on": {
+      "pinn_dir": "outputs/runs_syn",
+      "cmaes_dir": "outputs/runs_syn",
+      "cases": 16,
+      "missing_pinn": [],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 16,
+          "cmaes_better": 15,
+          "pinn_better": 1,
+          "ties": 0,
+          "p_sign": 0.000518798828125,
+          "p_wilcoxon": 0.00213623046875,
+          "median_margin": 0.006011232314328097
+        },
+        "dice_tc": {
+          "n": 16,
+          "cmaes_better": 16,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 3.0517578125e-05,
+          "p_wilcoxon": 3.0517578125e-05,
+          "median_margin": 0.05708608665937065
+        },
+        "err_mu_d": {
+          "n": 16,
+          "cmaes_better": 5,
+          "pinn_better": 11,
+          "ties": 0,
+          "p_sign": 0.210113525390625,
+          "p_wilcoxon": 0.116668701171875,
+          "median_margin": -0.029225429648854107
+        },
+        "err_mu_rho": {
+          "n": 16,
+          "cmaes_better": 12,
+          "pinn_better": 4,
+          "ties": 0,
+          "p_sign": 0.076812744140625,
+          "p_wilcoxon": 0.001312255859375,
+          "median_margin": 0.012262831696350063
+        }
+      },
+      "per_brain": {
+        "RHUH-0001": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 7,
+              "pinn_better": 1
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 2,
+              "pinn_better": 6
+            },
+            "err_mu_rho": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            }
+          }
+        },
+        "RHUH-0002": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 3,
+              "pinn_better": 5
+            },
+            "err_mu_rho": {
+              "cmaes_better": 4,
+              "pinn_better": 4
+            }
+          }
+        }
+      }
+    },
+    "patients, default schedule, prior on": {
+      "pinn_dir": "outputs/runs_patient",
+      "cmaes_dir": "outputs/runs_patient",
+      "cases": 20,
+      "missing_pinn": [],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 20,
+          "cmaes_better": 14,
+          "pinn_better": 6,
+          "ties": 0,
+          "p_sign": 0.11531829833984375,
+          "p_wilcoxon": 0.005580902099609375,
+          "median_margin": 0.007892201194698911
+        },
+        "dice_tc": {
+          "n": 20,
+          "cmaes_better": 13,
+          "pinn_better": 7,
+          "ties": 0,
+          "p_sign": 0.26317596435546875,
+          "p_wilcoxon": 0.04405403137207031,
+          "median_margin": 0.009738477244903232
+        }
+      }
+    },
+    "E2 synthetic, paper schedule, prior off": {
+      "pinn_dir": "outputs/runs_syn_np_paper",
+      "cmaes_dir": "outputs/runs_syn_np",
+      "cases": 16,
+      "missing_pinn": [],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 16,
+          "cmaes_better": 16,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 3.0517578125e-05,
+          "p_wilcoxon": 3.0517578125e-05,
+          "median_margin": 0.0212270894013753
+        },
+        "dice_tc": {
+          "n": 16,
+          "cmaes_better": 15,
+          "pinn_better": 1,
+          "ties": 0,
+          "p_sign": 0.000518798828125,
+          "p_wilcoxon": 6.103515625e-05,
+          "median_margin": 0.0229141614179873
+        },
+        "err_mu_d": {
+          "n": 16,
+          "cmaes_better": 12,
+          "pinn_better": 4,
+          "ties": 0,
+          "p_sign": 0.076812744140625,
+          "p_wilcoxon": 0.1590576171875,
+          "median_margin": 0.16542644486287722
+        },
+        "err_mu_rho": {
+          "n": 16,
+          "cmaes_better": 12,
+          "pinn_better": 4,
+          "ties": 0,
+          "p_sign": 0.076812744140625,
+          "p_wilcoxon": 0.01824951171875,
+          "median_margin": 0.10465355076033123
+        }
+      },
+      "per_brain": {
+        "RHUH-0001": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 7,
+              "pinn_better": 1
+            },
+            "err_mu_d": {
+              "cmaes_better": 5,
+              "pinn_better": 3
+            },
+            "err_mu_rho": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            }
+          }
+        },
+        "RHUH-0002": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 7,
+              "pinn_better": 1
+            },
+            "err_mu_rho": {
+              "cmaes_better": 4,
+              "pinn_better": 4
+            }
+          }
+        }
+      }
+    },
+    "E3 patients, paper schedule, prior off": {
+      "pinn_dir": "outputs/runs_patient_np_paper",
+      "cmaes_dir": "outputs/runs_patient_np",
+      "cases": 20,
+      "missing_pinn": [],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 20,
+          "cmaes_better": 15,
+          "pinn_better": 5,
+          "ties": 0,
+          "p_sign": 0.04138946533203125,
+          "p_wilcoxon": 0.0072956085205078125,
+          "median_margin": 0.05222333000506152
+        },
+        "dice_tc": {
+          "n": 20,
+          "cmaes_better": 17,
+          "pinn_better": 3,
+          "ties": 0,
+          "p_sign": 0.0025768280029296875,
+          "p_wilcoxon": 0.0001678466796875,
+          "median_margin": 0.026053245125696955
+        }
+      }
+    },
+    "E4 patients, release defaults vs CMA-ES prior off": {
+      "pinn_dir": "outputs/runs_patient_release_defaults",
+      "cmaes_dir": "outputs/runs_patient_np",
+      "cases": 20,
+      "missing_pinn": [],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 20,
+          "cmaes_better": 12,
+          "pinn_better": 8,
+          "ties": 0,
+          "p_sign": 0.5034446716308594,
+          "p_wilcoxon": 0.11398696899414062,
+          "median_margin": 0.008760442975295324
+        },
+        "dice_tc": {
+          "n": 20,
+          "cmaes_better": 19,
+          "pinn_better": 1,
+          "ties": 0,
+          "p_sign": 4.00543212890625e-05,
+          "p_wilcoxon": 9.5367431640625e-06,
+          "median_margin": 0.05974127163441001
+        }
+      }
+    },
+    "S2 synthetic, release defaults vs CMA-ES prior off": {
+      "pinn_dir": "outputs/runs_syn_release_defaults",
+      "cmaes_dir": "outputs/runs_syn_np",
+      "cases": 16,
+      "missing_pinn": [],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 16,
+          "cmaes_better": 15,
+          "pinn_better": 1,
+          "ties": 0,
+          "p_sign": 0.000518798828125,
+          "p_wilcoxon": 6.103515625e-05,
+          "median_margin": 0.06882085636795587
+        },
+        "dice_tc": {
+          "n": 16,
+          "cmaes_better": 16,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 3.0517578125e-05,
+          "p_wilcoxon": 3.0517578125e-05,
+          "median_margin": 0.1308319973961054
+        },
+        "err_mu_d": {
+          "n": 16,
+          "cmaes_better": 10,
+          "pinn_better": 6,
+          "ties": 0,
+          "p_sign": 0.454498291015625,
+          "p_wilcoxon": 0.07391357421875,
+          "median_margin": 0.2416874137920631
+        },
+        "err_mu_rho": {
+          "n": 16,
+          "cmaes_better": 11,
+          "pinn_better": 5,
+          "ties": 0,
+          "p_sign": 0.210113525390625,
+          "p_wilcoxon": 0.03863525390625,
+          "median_margin": 0.10944899840500544
+        }
+      },
+      "per_brain": {
+        "RHUH-0001": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 4,
+              "pinn_better": 4
+            },
+            "err_mu_rho": {
+              "cmaes_better": 7,
+              "pinn_better": 1
+            }
+          }
+        },
+        "RHUH-0002": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 7,
+              "pinn_better": 1
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 6,
+              "pinn_better": 2
+            },
+            "err_mu_rho": {
+              "cmaes_better": 4,
+              "pinn_better": 4
+            }
+          }
+        }
+      }
+    },
+    "EXP-REACH synthetic, lr 1e-3, prior off": {
+      "pinn_dir": "outputs/runs_reach",
+      "cmaes_dir": "outputs/runs_syn_np",
+      "cases": 16,
+      "missing_pinn": [],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 16,
+          "cmaes_better": 16,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 3.0517578125e-05,
+          "p_wilcoxon": 3.0517578125e-05,
+          "median_margin": 0.029984946266269852
+        },
+        "dice_tc": {
+          "n": 16,
+          "cmaes_better": 16,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 3.0517578125e-05,
+          "p_wilcoxon": 3.0517578125e-05,
+          "median_margin": 0.026767637497166374
+        },
+        "err_mu_d": {
+          "n": 16,
+          "cmaes_better": 9,
+          "pinn_better": 7,
+          "ties": 0,
+          "p_sign": 0.803619384765625,
+          "p_wilcoxon": 0.274444580078125,
+          "median_margin": 0.039345118874774265
+        },
+        "err_mu_rho": {
+          "n": 16,
+          "cmaes_better": 12,
+          "pinn_better": 4,
+          "ties": 0,
+          "p_sign": 0.076812744140625,
+          "p_wilcoxon": 0.033538818359375,
+          "median_margin": 0.07720060969416898
+        }
+      },
+      "per_brain": {
+        "RHUH-0001": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 3,
+              "pinn_better": 5
+            },
+            "err_mu_rho": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            }
+          }
+        },
+        "RHUH-0002": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 6,
+              "pinn_better": 2
+            },
+            "err_mu_rho": {
+              "cmaes_better": 4,
+              "pinn_better": 4
+            }
+          }
+        }
+      }
+    },
+    "EXP-REACH synthetic, lr 3e-4, prior off": {
+      "pinn_dir": "outputs/runs_reach_3e-4",
+      "cmaes_dir": "outputs/runs_syn_np",
+      "cases": 4,
+      "missing_pinn": [
+        "SYN-RHUH-0001-d0.2-r1.3",
+        "SYN-RHUH-0001-d0.4-r0.6",
+        "SYN-RHUH-0001-d0.4-r1.3",
+        "SYN-RHUH-0001-d0.8-r0.6",
+        "SYN-RHUH-0001-d0.8-r1.3",
+        "SYN-RHUH-0001-d1.2-r0.6",
+        "SYN-RHUH-0002-d0.2-r0.6",
+        "SYN-RHUH-0002-d0.4-r0.6",
+        "SYN-RHUH-0002-d0.4-r1.3",
+        "SYN-RHUH-0002-d0.8-r0.6",
+        "SYN-RHUH-0002-d0.8-r1.3",
+        "SYN-RHUH-0002-d1.2-r1.3"
+      ],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 4,
+          "cmaes_better": 4,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 0.125,
+          "p_wilcoxon": 0.125,
+          "median_margin": 0.027697975054955193
+        },
+        "dice_tc": {
+          "n": 4,
+          "cmaes_better": 4,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 0.125,
+          "p_wilcoxon": 0.125,
+          "median_margin": 0.02512025199029594
+        },
+        "err_mu_d": {
+          "n": 4,
+          "cmaes_better": 2,
+          "pinn_better": 2,
+          "ties": 0,
+          "p_sign": 1.0,
+          "p_wilcoxon": 0.875,
+          "median_margin": 0.06042149360416739
+        },
+        "err_mu_rho": {
+          "n": 4,
+          "cmaes_better": 3,
+          "pinn_better": 1,
+          "ties": 0,
+          "p_sign": 0.625,
+          "p_wilcoxon": 0.25,
+          "median_margin": 0.07394338695445696
+        }
+      },
+      "per_brain": {
+        "RHUH-0001": {
+          "cases": 2,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 2,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 2,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 0,
+              "pinn_better": 2
+            },
+            "err_mu_rho": {
+              "cmaes_better": 2,
+              "pinn_better": 0
+            }
+          }
+        },
+        "RHUH-0002": {
+          "cases": 2,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 2,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 2,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 2,
+              "pinn_better": 0
+            },
+            "err_mu_rho": {
+              "cmaes_better": 1,
+              "pinn_better": 1
+            }
+          }
+        }
+      }
+    },
+    "EXP-REACH synthetic, lr 1e-3, prior on": {
+      "pinn_dir": "outputs/runs_reach_prior",
+      "cmaes_dir": "outputs/runs_syn",
+      "cases": 16,
+      "missing_pinn": [],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 16,
+          "cmaes_better": 14,
+          "pinn_better": 2,
+          "ties": 0,
+          "p_sign": 0.004180908203125,
+          "p_wilcoxon": 0.001312255859375,
+          "median_margin": 0.009153653303203446
+        },
+        "dice_tc": {
+          "n": 16,
+          "cmaes_better": 16,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 3.0517578125e-05,
+          "p_wilcoxon": 3.0517578125e-05,
+          "median_margin": 0.05018963644697566
+        },
+        "err_mu_d": {
+          "n": 16,
+          "cmaes_better": 5,
+          "pinn_better": 11,
+          "ties": 0,
+          "p_sign": 0.210113525390625,
+          "p_wilcoxon": 0.1590576171875,
+          "median_margin": -0.010870552573973735
+        },
+        "err_mu_rho": {
+          "n": 16,
+          "cmaes_better": 12,
+          "pinn_better": 4,
+          "ties": 0,
+          "p_sign": 0.076812744140625,
+          "p_wilcoxon": 0.001312255859375,
+          "median_margin": 0.012554334726469052
+        }
+      },
+      "per_brain": {
+        "RHUH-0001": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 6,
+              "pinn_better": 2
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 2,
+              "pinn_better": 6
+            },
+            "err_mu_rho": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            }
+          }
+        },
+        "RHUH-0002": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 3,
+              "pinn_better": 5
+            },
+            "err_mu_rho": {
+              "cmaes_better": 4,
+              "pinn_better": 4
+            }
+          }
+        }
+      }
+    },
+    "EXP-ENV synthetic, paper schedule, prior off": {
+      "pinn_dir": "outputs/runs_env",
+      "cmaes_dir": "outputs/runs_env",
+      "cases": 12,
+      "missing_pinn": [],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 12,
+          "cmaes_better": 12,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 0.00048828125,
+          "p_wilcoxon": 0.00048828125,
+          "median_margin": 0.0125350522111366
+        },
+        "dice_tc": {
+          "n": 12,
+          "cmaes_better": 12,
+          "pinn_better": 0,
+          "ties": 0,
+          "p_sign": 0.00048828125,
+          "p_wilcoxon": 0.00048828125,
+          "median_margin": 0.019556376715679946
+        },
+        "err_mu_d": {
+          "n": 12,
+          "cmaes_better": 7,
+          "pinn_better": 5,
+          "ties": 0,
+          "p_sign": 0.7744140625,
+          "p_wilcoxon": 0.5185546875,
+          "median_margin": 0.015889363372876608
+        },
+        "err_mu_rho": {
+          "n": 12,
+          "cmaes_better": 3,
+          "pinn_better": 9,
+          "ties": 0,
+          "p_sign": 0.14599609375,
+          "p_wilcoxon": 0.02685546875,
+          "median_margin": -0.14664990924323634
+        }
+      },
+      "per_brain": {
+        "RHUH-0001": {
+          "cases": 5,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 5,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 5,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 0,
+              "pinn_better": 5
+            },
+            "err_mu_rho": {
+              "cmaes_better": 0,
+              "pinn_better": 5
+            }
+          }
+        },
+        "RHUH-0002": {
+          "cases": 7,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 7,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 7,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 7,
+              "pinn_better": 0
+            },
+            "err_mu_rho": {
+              "cmaes_better": 3,
+              "pinn_better": 4
+            }
+          }
+        }
+      }
+    },
+    "B3 synthetic, paper's printed settings, prior off": {
+      "pinn_dir": "outputs/runs_b3",
+      "cmaes_dir": "outputs/runs_syn_np",
+      "cases": 16,
+      "missing_pinn": [],
+      "missing_cmaes": [],
+      "metrics": {
+        "dice_wt": {
+          "n": 16,
+          "cmaes_better": 13,
+          "pinn_better": 3,
+          "ties": 0,
+          "p_sign": 0.021270751953125,
+          "p_wilcoxon": 0.00042724609375,
+          "median_margin": 0.018258790560589544
+        },
+        "dice_tc": {
+          "n": 16,
+          "cmaes_better": 15,
+          "pinn_better": 1,
+          "ties": 0,
+          "p_sign": 0.000518798828125,
+          "p_wilcoxon": 0.000152587890625,
+          "median_margin": 0.029936395497587254
+        },
+        "err_mu_d": {
+          "n": 16,
+          "cmaes_better": 12,
+          "pinn_better": 4,
+          "ties": 0,
+          "p_sign": 0.076812744140625,
+          "p_wilcoxon": 0.010986328125,
+          "median_margin": 0.2681756262726587
+        },
+        "err_mu_rho": {
+          "n": 16,
+          "cmaes_better": 11,
+          "pinn_better": 5,
+          "ties": 0,
+          "p_sign": 0.210113525390625,
+          "p_wilcoxon": 0.065399169921875,
+          "median_margin": 0.08817937894013117
+        }
+      },
+      "per_brain": {
+        "RHUH-0001": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "dice_tc": {
+              "cmaes_better": 7,
+              "pinn_better": 1
+            },
+            "err_mu_d": {
+              "cmaes_better": 6,
+              "pinn_better": 2
+            },
+            "err_mu_rho": {
+              "cmaes_better": 7,
+              "pinn_better": 1
+            }
+          }
+        },
+        "RHUH-0002": {
+          "cases": 8,
+          "metrics": {
+            "dice_wt": {
+              "cmaes_better": 5,
+              "pinn_better": 3
+            },
+            "dice_tc": {
+              "cmaes_better": 8,
+              "pinn_better": 0
+            },
+            "err_mu_d": {
+              "cmaes_better": 6,
+              "pinn_better": 2
+            },
+            "err_mu_rho": {
+              "cmaes_better": 4,
+              "pinn_better": 4
+            }
+          }
+        }
+      }
+    }
+  },
+  "skipped_no_records": []
+}

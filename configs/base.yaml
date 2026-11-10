@@ -1,0 +1,188 @@
+# Fixed settings of the PINN-versus-CMA-ES comparison.
+#
+# Every value that could differ between the two methods lives here, so that
+# our paper can state one number per setting and both runs read it from the
+# same file. A value taken from the reference code external/pinngbm-torch
+# (commit 99af20f) carries a file:line pointer into it. Where that code departs
+# from Zhang et al. (2025), both numbers are given and the code value is used,
+# because the PINN arm runs that code.
+
+model:
+  # Fisher-Kolmogorov forward problem, identical for both methods.
+  factor: 10.0            # D_w / D_g. A choice of this study, held at 10 so both
+                          # arms solve the same problem. Zhang et al. (2025),
+                          # App. A p. 12, Table A.3, show that c = 10 fits better
+                          # than c = 1; Balcerak et al. (2025), p. 11, infer the
+                          # ratio instead of fixing it.
+                          # Note: make_synthetic.make_case calls the grid
+                          # refinement `factor` and this ratio `tissue_factor`.
+  voxel_mm: 1.0           # PREDICT-GBM grid
+  t_final: 1.0            # non-dimensional; see src/models/characteristic.py
+  n_save: 2               # only the final state enters the score
+  cfl_safety: 0.99        # external/pinngbm-torch/solve_fisher_kpp.py:77 and
+                          # solve_fisher_kpp_torch.py:72
+  phase_field:
+    n_iter: 100           # external/pinngbm-torch/Engine.py:245 (numiter=100)
+    epsilon_mm: 3.0       # Engine.py:245 (epsilon=3), in millimeters. Our
+                          # phase_field takes the physical voxel size h, so the
+                          # 0.5 mm synthetic grid keeps a 3 mm wide layer. The
+                          # value is taken from the code; Zhang et al. Sec. 2.1.2
+                          # (p. 3) describe the method.
+
+initial_condition:
+  # u0(x) = h_init * exp(-r_init * |x - x0|^2), x0 = tumor-core centroid.
+  h_init: 0.5             # Options.py:38
+  r_init: 0.01            # Options.py:39 (Engine's 0.1 fallback never runs)
+
+characteristic:
+  radius_method: rvol     # equivalent-volume radius; Options.py:57
+  xdim: 3
+  domain_mm: 180.0        # external/pinngbm-torch/gbmutil.py:87 (BD=180.0)
+  d_grid: [0.1, 1.0, 10]  # linspace(start, stop, num)
+  rho_grid: [0.01, 0.1, 10]
+  # Both grids: gbmutil.py:157-158. The ranges are taken from the code; Zhang et
+  # al. Sec. 2.2 (p. 4) and App. C (p. 13) describe the grid search.
+
+parameters:
+  # The four unknowns both methods estimate, and their admissible ranges.
+  # init is the start value of both methods and the center of the prior: a
+  # penalty that pulls the four parameters toward their start values;
+  # --prior-scale 0 switches it off.
+  mu_d:   {init: 1.0, min: 0.0, max: 2.0}
+  mu_rho: {init: 1.0, min: 0.0, max: 2.0}
+  th_wt:  {init: 0.35, min: 0.0, max: 1.0}   # prior_th1, u_FLAIR
+  th_tc:  {init: 0.70, min: 0.0, max: 1.0}   # prior_th2, u_T1c
+  # Zhang et al. (2025), p. 4, print 0.6 for the core threshold; Options.py:56
+  # sets 0.7. The code value is used.
+
+objective:
+  # Shared score. See src/training/objective.py for the three ways the code
+  # differs from the published equations (normalization, phi weighting,
+  # steepness).
+  steepness: 20.0         # hard-coded in GBMproblem.sigmoid_binarize
+  weights:
+    seg_wt: 1.0e-5
+    seg_tc: 1.0e-5
+    reg_mu_d: 1.0e-3
+    reg_mu_rho: 1.0e-3
+    reg_th_wt: 1.0e-3
+    reg_th_tc: 1.0e-3
+    range_penalty: 1.0
+
+cmaes:
+  # The arm is the `cma` library (pycma): src/training/cmaes_calibration.py:29
+  # imports it and :148 constructs CMAEvolutionStrategy. Only six options are
+  # set (bounds, popsize, maxfevals, tolfun, seed, verbose); every other
+  # strategy parameter is a pycma default, not a value from Table 1 of Hansen
+  # and Ostermeier (2001).
+  sigma0: 0.25            # A choice of this study, not tuned. Hansen and
+                          # Ostermeier (2001), p. 178, note that the initial
+                          # step size has a strong effect on the search.
+  popsize: 8              # 4 + floor(3 ln n) = 8 at n = 4 (Hansen and Ostermeier
+                          # 2001, p. 177, Table 1); also pycma's default. The
+                          # number of parents, floor(popsize/2) = 4, is pycma's
+                          # default.
+  max_evaluations: 600    # A choice of this study; 38% of Hansen's 100 n^2 = 1600.
+  tol_fun: 1.0e-12        # A choice of this study. Four-parameter runs end at
+                          # max_evaluations; two-parameter refits (thresholds
+                          # fixed) can stop on this tolerance first.
+  seed: 0                 # Random seed of CMA-ES. pycma treats 0 as a clock seed,
+                          # so a CMA-ES run with seed 0 cannot be repeated exactly.
+
+pinn:
+  # The network that runs.
+  #
+  # Zhang et al. App. E (p. 14) specify "a fully connected neural network with 4
+  # hidden layers. Each layer has 128 neurons, and the tanh activation function
+  # is used." The released code builds a different network by default. The keys
+  # below are the reference code's defaults, except separable; variant configs
+  # change some of them.
+  separable: false        # Options.py:68 defaults to true; false gives a dense
+                          # network, as in Zhang et al. App. E.
+  depth: 4                # Options.py:62
+  width: 128              # Options.py:63
+  arch: mmlp              # Options.py:67. DenseNet.py:264 -> ModifiedMLP
+                          # (DenseNet.py:166): 3 hidden layers (depth - 1), each
+                          # gated H = A*U + (1-A)*V by two extra encoder layers
+                          # U and V. Not a plain MLP.
+  fourier: true           # Options.py:65. The input layer is a random Fourier
+                          # feature layer, sin(Wx+b) (DenseNet.py:13-27), not
+                          # tanh(Wx+b).
+  sigma: 1.0              # Options.py:66, the Fourier feature scale
+  output_rank: 64         # Options.py:64. Unused while separable is false.
+  act: tanh               # DenseNet.py:240 default, as in Zhang et al. App. E.
+  iter_init: 4000         # Options.py:75, pre-training
+  iter_inv: 1000          # Options.py:80, fine-tuning
+  lr_init: 1.0e-3         # Options.py:74
+  lr_inv: 1.0e-3          # Options.py:79
+  dat_batch_size: 100000  # Options.py:52
+  res_batch_size: 200000  # Options.py:53
+  optimiser: Adam         # Options.py:87. Zhang et al. (p. 14) add an L-BFGS-B
+                          # stage with 100 variable-metric corrections, which
+                          # their TensorFlow code runs (glioma.py:403-408 of
+                          # https://github.com/Rayzhangzirui/pinngbm, commit
+                          # 41e2eeb; see docs/REFERENCE_PINN.md). The PyTorch
+                          # release does not; configs/paper_schedule_lbfgs_full.yaml
+                          # adds it.
+
+  reference:
+    # The reference code's own defaults, recorded so that a run record states
+    # what ran. run_pinn.py does not read this block: changing a value here has
+    # no effect.
+    amsgrad: true         # Options.py:89 optim_opts: Adam with AMSGrad.
+    texp_weight: 10.0     # Options.py:48. An exp(-wt) weight on the residual in
+                          # time, so the PDE loss is not uniform over [0,1].
+    weights_init:         # Options.py:77. Pre-training minimizes two terms: the
+      res: 1.0            # residual and the fit to the characteristic solution.
+      uchar_res: 10.0
+    weights_inv_res: 1.0  # Options.py:82, the residual weight in fine-tuning.
+                          # objective.weights above lists only the mask and prior
+                          # weights.
+    m_times: 100          # Options.py:54, time snapshots in pre-training data
+    Nt: 101               # Options.py:58, time points for the residual
+    scheduler: ExponentialLR   # Options.py:91
+    scheduler_gamma: 1.0       # Options.py:92. gamma 1 keeps the rate constant.
+    force_bc: true        # Options.py:43
+    reset_optim: true     # Options.py:83
+    acc_iter: 1           # Options.py:93
+    rpow_weight: 0.0      # Options.py:49, off
+    causal_weight: false  # Options.py:50, off
+    use_fdm: false        # Options.py:59
+    # Options.py:51 sets ksigmoid: 50, but GBMproblem.sigmoid_binarize
+    # hard-codes K = 20 and never reads it, so objective.steepness is 20.
+    ksigmoid_is_dead: 50
+
+evaluation:
+  ctv_margin_mm: 15.0     # Zimmer et al. 2026 p. 11: "isotropically
+                          # dilating the segmented tumor core by 15 mm within the
+                          # brain mask, consistent with contemporary
+                          # guideline-based CTV expansions"
+  recurrence_targets: [enhancing, core]
+
+data:
+  # The extracted archive nests one directory per case; RHUH cases keep their
+  # own ids (RHUH-0001 ... RHUH-0040), so no cohort mapping file is needed.
+  # Override with --data-root (or DATA_ROOT in the Slurm templates).
+  root: src/data/predict_gbm/predict_gbm
+  cohort: RHUH
+  case_list: experiments/cases_rhuh.txt
+  order: patient_id       # cases are processed in fixed patient-ID order
+  minimum_cases: 20
+  maximum_cases: 40
+  cache_dir: outputs/cache
+
+synthetic:
+  # Every value in this block is a choice of this study. None is taken from a
+  # paper, and together they set how hard the synthetic test is.
+  n_cases: 8              # per source brain; two brains give the 16 base cases
+  fine_voxel_mm: 0.5      # truth generated at half the voxel size, so the truth
+                          # is not a fixed point of the solver being calibrated
+  noise_sigma: 0.05       # amplitude of the spatially correlated noise
+  noise_smoothing_mm: 3.0 # its correlation length
+  seed: 20260916          # random seed of the noise of case 0 (case i: seed + i)
+
+runtime:
+  device: cuda
+  dtype: float32
+  gpu_model: a100         # GPU type of our paper's runs
+  seed: 0                 # random seed of the PINN (Options.py:34)

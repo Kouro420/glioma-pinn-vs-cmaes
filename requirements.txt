@@ -1,0 +1,20 @@
+# Versions used for our paper's runs (Python 3.11).
+# The CMA-ES arm uses pycma's default strategy parameters, so another cma version may search differently.
+# run_pinn.py patches one NumPy 2 scalar conversion in the reference PINN, so keep NumPy 2.
+torch==2.6.0+cu124
+cma==4.5.0
+nibabel==5.4.2
+numpy==2.4.6
+scipy==1.17.1
+PyYAML==6.0.3
+
+# Figures and tables.
+matplotlib==3.10.8
+
+# Needed by the reference PINN (its own requirements.txt lists them unpinned).
+loguru==0.7.3
+torchinfo==1.8.0
+torchtnt==0.2.4
+
+# Tests.
+pytest>=8.0

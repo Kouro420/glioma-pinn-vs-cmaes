@@ -1,0 +1,62 @@
+{
+  "what": "Where does the objective's own minimum sit, relative to the truth? No optimizer involved.\n\nFor each of the four profiled synthetic cases (prior off), the minimum of the objective on the\nfine grid (step 0.02) is compared with the true multipliers. If the minimum misses mu_D by a\nlarger fraction than mu_rho, then even an optimizer that found the exact minimum would recover\ndiffusion worse than proliferation: the error floor is in the data and the objective, not in a\nsearch. Four cases, one noise realization each -- an observation, not a tested claim.\n\nAlso writes, for the converged CMA-ES arm on the sixteen prior-off cases, the median error in each\nmultiplier, so that our paper can state the same asymmetry for the one arm that finished its search.\n\nWrites outputs/tables/objective_minimum_vs_truth.json. Run from the repository root.",
+  "profiles": [
+    {
+      "case": "SYN-RHUH-0001-d0.2-r0.6",
+      "prior_scale": 0.0,
+      "minimum_mu_d": 0.16,
+      "minimum_mu_rho": 0.84,
+      "truth_mu_d": 0.3313,
+      "truth_mu_rho": 0.7455,
+      "miss_mu_d_pct": -51.7,
+      "miss_mu_rho_pct": 12.7
+    },
+    {
+      "case": "SYN-RHUH-0001-d1.2-r1.3",
+      "prior_scale": 0.0,
+      "minimum_mu_d": 0.2,
+      "minimum_mu_rho": 1.64,
+      "truth_mu_d": 0.6928,
+      "truth_mu_rho": 1.2666,
+      "miss_mu_d_pct": -71.1,
+      "miss_mu_rho_pct": 29.5
+    },
+    {
+      "case": "SYN-RHUH-0002-d0.2-r1.3",
+      "prior_scale": 0.0,
+      "minimum_mu_d": 0.1,
+      "minimum_mu_rho": 0.86,
+      "truth_mu_d": 0.2236,
+      "truth_mu_rho": 1.1628,
+      "miss_mu_d_pct": -55.3,
+      "miss_mu_rho_pct": -26.0
+    },
+    {
+      "case": "SYN-RHUH-0002-d1.2-r0.6",
+      "prior_scale": 0.0,
+      "minimum_mu_d": 1.18,
+      "minimum_mu_rho": 0.68,
+      "truth_mu_d": 1.5784,
+      "truth_mu_rho": 0.6314,
+      "miss_mu_d_pct": -25.2,
+      "miss_mu_rho_pct": 7.7
+    }
+  ],
+  "n_profiles": 4,
+  "mu_d_missed_by_larger_fraction_than_mu_rho": 4,
+  "miss_mu_d_pct_range": [
+    -71.1,
+    -25.2
+  ],
+  "miss_mu_rho_pct_range": [
+    -26.0,
+    29.5
+  ],
+  "cmaes_condition_B": {
+    "n": 16,
+    "median_err_mu_d": 0.195,
+    "median_err_mu_rho": 0.097,
+    "median_rel_err_d_eff": 0.407,
+    "median_rel_err_rho_eff": 0.102
+  }
+}
