@@ -31,7 +31,7 @@ test both on synthetic tumors, where the true parameters are known, and on 20 pa
 | **All the code** that produces the numbers, tables and figures of our paper. | **The PINN of Zhang et al. (2025).** `scripts/fetch_reference_pinn.sh` downloads the exact version we used. |
 | **The settings of each experiment**, one YAML file per experiment in `configs/`. | **The patient scans** from PREDICT-GBM (RHUH cohort, one folder per patient: RHUH-0001, RHUH-0002, …). `scripts/fetch_predict_gbm.py` downloads the patients you need ([docs/DATA.md](docs/DATA.md)). |
 | **The result tables** reported in our paper, in `outputs/tables/`. | **The synthetic tumors**, grown with known parameters in the brains of patients RHUH-0001 and RHUH-0002. The code rebuilds them with fixed random seeds. |
-| **Tests** for the solver and the settings, in `tests/`. | **The run records**, one result file per calibration run. They are archived on Zenodo; `scripts/fetch_records.py` downloads them. |
+| **Tests** for the solver and the settings, in `tests/`. | **The run records**, one result file per calibration run. They are archived on Zenodo ([doi:10.5281/zenodo.24107357](https://doi.org/10.5281/zenodo.24107357)); `scripts/fetch_records.py` downloads them. |
 | **A worked example** on one synthetic tumor that runs the whole pipeline, in `repro/one_case/`. | **The clinical pilot** (17 patients). These are patient data and are not shared; our paper reports them as a summary. |
 
 ## Installation
@@ -119,3 +119,5 @@ MIT, see [LICENSE](LICENSE). The PINN code, the PREDICT-GBM data and `pycma` com
 If you use this code, please cite our paper ([CITATION.cff](CITATION.cff)), together with
 [Zhang et al. (2025)](https://doi.org/10.1016/j.media.2024.103423) for the PINN and
 [Zimmer et al. (2026)](https://doi.org/10.1038/s41746-026-03194-0) for the PREDICT-GBM benchmark.
+The run records are cited as: Moini, K. (2026). Run records, version 1.0 [Dataset]. Zenodo.
+<https://doi.org/10.5281/zenodo.24107357>

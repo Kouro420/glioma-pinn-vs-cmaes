@@ -4,7 +4,7 @@
 With them, every figure and table of our paper can be rebuilt without a new run
 (``python -m scripts.make_figures`` and the table scripts in docs/REPRODUCE.md).
 
-The Zenodo link is added at release. Until then, download the archive by hand and pass --archive.
+The archive: https://doi.org/10.5281/zenodo.24107357 (version 1.0, CC BY 4.0).
 
     python scripts/fetch_records.py
     python scripts/fetch_records.py --archive records.zip   # an archive already downloaded
@@ -20,9 +20,9 @@ import zipfile
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
-# The Zenodo link is added at release.
-ZENODO_URL = ""
-MD5 = ""
+# Version 1.0 of the archive, https://doi.org/10.5281/zenodo.24107357
+ZENODO_URL = "https://zenodo.org/records/24107357/files/glioma-pinn-vs-cmaes-records.zip?download=1"
+MD5 = "65cba3c9ec4cb04e7f4cbeb00069f3b0"
 
 
 def main() -> int:

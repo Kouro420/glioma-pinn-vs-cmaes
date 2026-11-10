@@ -9,7 +9,7 @@ There are three levels, each needing more compute than the one before.
 3. **Rerun every experiment**: sections A and B, then C.
 
 `python scripts/fetch_records.py` downloads the run records into `outputs/`. Or download the archive
-from Zenodo (link in README.md once published) and run `python scripts/fetch_records.py --archive <file>`.
+from Zenodo (<https://doi.org/10.5281/zenodo.24107357>) and run `python scripts/fetch_records.py --archive <file>`.
 
 Every command runs from the repository root. `$DATA` is the folder that holds the PREDICT-GBM cases:
 `src/data/predict_gbm/predict_gbm` after `python scripts/fetch_predict_gbm.py` ([DATA.md](DATA.md)).

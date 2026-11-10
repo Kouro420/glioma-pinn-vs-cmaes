@@ -60,7 +60,7 @@ summary. Requests for the data go to the clinical co-authors, not to this reposi
 ## Run records (Zenodo)
 
 The run records of our paper (one JSON file per method and case) and the objective profiles are one
-archive on Zenodo. `python scripts/fetch_records.py` downloads them into `outputs/`. Or download the
-archive from Zenodo (link in README.md once published) and run
-`python scripts/fetch_records.py --archive <file>`. The records hold no patient data: every record is a
-synthetic case or a public RHUH case.
+archive on Zenodo, <https://doi.org/10.5281/zenodo.24107357>. `python scripts/fetch_records.py`
+downloads them into `outputs/`. Or download the archive by hand and run
+`python scripts/fetch_records.py --archive <file>`. The records hold numbers only, no images: every
+record is a synthetic case or a public RHUH case.
