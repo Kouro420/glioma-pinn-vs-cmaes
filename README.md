@@ -119,5 +119,7 @@ MIT, see [LICENSE](LICENSE). The PINN code, the PREDICT-GBM data and `pycma` com
 If you use this code, please cite our paper ([CITATION.cff](CITATION.cff)), together with
 [Zhang et al. (2025)](https://doi.org/10.1016/j.media.2024.103423) for the PINN and
 [Zimmer et al. (2026)](https://doi.org/10.1038/s41746-026-03194-0) for the PREDICT-GBM benchmark.
+The code of this repository is archived on Zenodo: Moini, K. (2026). glioma-pinn-vs-cmaes (v1.0)
+[Software]. Zenodo. <https://doi.org/10.5281/zenodo.24108724>
 The run records are cited as: Moini, K. (2026). Run records, version 1.0 [Dataset]. Zenodo.
 <https://doi.org/10.5281/zenodo.24107357>

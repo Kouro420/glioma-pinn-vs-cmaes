@@ -7,12 +7,15 @@ authors:
   - family-names: Moini
     given-names: Kourosh
     affiliation: "Institut für Kontinuumsmechanik, Leibniz Universität Hannover"
+    orcid: "https://orcid.org/0009-0009-6108-8732"
+version: v1.0
+date-released: 2026-11-10
+doi: 10.5281/zenodo.24108724
 repository-code: "https://github.com/Kouro420/glioma-pinn-vs-cmaes"
 identifiers:
   - type: doi
     value: 10.5281/zenodo.24107357
     description: "The run records of our paper (dataset on Zenodo, version 1.0)"
-# doi: add the Zenodo DOI of this software here once it is minted
 preferred-citation:
   type: article
   title: "How much of a Fisher–Kolmogorov glioma model can one structural MRI calibrate? A matched comparison of a physics-informed neural network and CMA-ES"
